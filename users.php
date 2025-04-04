@@ -1,18 +1,24 @@
-<!DOCTYPE html>
-<!--Coding by Mr_Codex-->
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Realtime Chat App</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/fontawesome-free-6.7.2-web/css/all.min.css">
-</head>
+<?php
+    session_start();
+    if(isset($_SESSION['unique_id'])){
+    header("location: login.php");
+    }
+?>
+
+<?php
+include_once "header.php";
+?>
 <body>
     <div class="wrapper">
         <section class="users">
             <header>
+                <?php 
+                    include_once "php/config.php";
+                $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$_SESSION['unique_id']}");
+                    if(mysqli_num_rows($sql) > 0){
+                        $row = mysqli_fetch_object($sql);
+                    }
+                ?>
                 <div class="content">
                     <img src="assets/img/girl.jpeg" alt="">
                     <div class="details">
