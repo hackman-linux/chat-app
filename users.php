@@ -81,5 +81,7 @@
             </div>
         </section>
     </div>
+
+    <script src="assets/js/users.js"></script>
 </body>
 </html>
