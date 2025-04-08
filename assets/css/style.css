@@ -267,7 +267,7 @@ body{
 }
 /* We'll use this class in php to show offline status*/
 
-.users-list a .status-dot.offlin{
+.users-list a .status-dot.offline{
     color: #ccc;
 }
 
@@ -375,4 +375,82 @@ body{
     font-size: 19px;
     cursor: pointer;
     border-radius: 0 5px 5px 0;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 480px) {
+    .form {
+        padding: 20px 15px;
+    }
+
+    .users,
+    .chat-area header {
+        padding: 15px;
+    }
+
+    .form form .name-details {
+        flex-direction: column;
+        /* Stack first name and last name on mobile */
+    }
+
+    .form .name-details .field:first-child {
+        margin-right: 0;
+    }
+
+    .form .name-details .field:last-child {
+        margin-left: 0;
+    }
+
+    .chat-box {
+        padding: 10px 15px;
+        height: 400px;
+        /* Smaller height on mobile */
+    }
+
+    .chat-area .typing-area {
+        padding: 15px;
+    }
+
+    .users .search .text {
+        display: none;
+        /* Hide search text on very small screens */
+    }
+
+    .users header .content img {
+        height: 40px;
+        width: 40px;
+    }
+
+    :is(.users, .users-list) .details span {
+        font-size: 16px;
+    }
+
+    .users header .logout {
+        padding: 5px 10px;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+
+    /* Even smaller screens */
+    .users header .content img {
+        height: 35px;
+        width: 35px;
+    }
+
+    .users-list a .content img {
+        height: 30px;
+        width: 30px;
+        min-width: 30px;
+    }
+
+    :is(.users, .users-list) .details span {
+        font-size: 14px;
+    }
+
+    .chat-box {
+        padding: 10px;
+        height: 350px;
+    }
 }
